@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
+#include<stdio.h>
 using namespace std;
 struct Process
 {
@@ -86,7 +87,7 @@ int main()
         scanf("%d",&p[i].bt);
       } 
 
-
+int v=n-1;
     sort1(p,n);
 
  int a[n],b[n];
@@ -159,18 +160,34 @@ int main()
     int f=c[0];
 
     for(int i=0;i<n;i++)
-    {
+    {   if(e!=0){
     	if(p[i].pid==f){
     		t=t+p[i].bt;
     		r=p[i].at;
 		}
 	}
-    
+    }
     
   
-   // cout<<"    P"<<f<<"   "<<t;
-
+   if(e==0 && v>0){
+   for(int i=0;i<n;i++)
+   {
+   if(t<p[i].at){
+   t=p[i].at+p[i].bt;
 		printf("    P%d      %d",f,t);
+	break;
+	}
+	}
+	}
+	else{
+	printf("     P%d      %d",f,t);
+	v--;}
+	
+	
+	
+	
+	
+	
 	
 	for(int i=0; i<m; i++)
 	{
